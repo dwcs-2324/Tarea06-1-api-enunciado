@@ -49,7 +49,7 @@ class NotaController extends AbstractController
             $requestBody = json_decode($request->getContent(), true);
             $fields = $notaOptionsResolver->configureTitle(true)->resolve($requestBody);
             $nota = new Nota();
-            $nota->setTitle($requestBody["title"]);
+            $nota->setTitle($fields["title"]);
             // To validate the entity
             $errors = $validator->validate($nota);
             if (count($errors) > 0) {
